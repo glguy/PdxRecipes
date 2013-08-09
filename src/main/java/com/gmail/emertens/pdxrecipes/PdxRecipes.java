@@ -30,10 +30,7 @@ public class PdxRecipes extends JavaPlugin {
 	public void onEnable() {
 		final Server server = getServer();
 		server.addRecipe(chiseledStoneRecipe());
-		server.addRecipe(chiseledSandstoneRecipe());
 		server.addRecipe(lilypadRecipe());
-		server.addRecipe(crackedStoneRecipe());
-		server.addRecipe(secretMusicDisk());
 
 		final Listener listener = new Listener() {
 			@EventHandler(ignoreCancelled = true)
@@ -63,52 +60,12 @@ public class PdxRecipes extends JavaPlugin {
 		return recipe;
 	}
 
-	private static Recipe chiseledSandstoneRecipe() {
-		final ItemStack craft = new ItemStack(Material.SANDSTONE, 4);
-		craft.setDurability((byte)1);
-
-		final ShapedRecipe recipe = new ShapedRecipe(craft);
-		recipe.shape("sss","s s","sss")
-		      .setIngredient('s', Material.SANDSTONE);
-
-		return recipe;
-	}
-
 	private static Recipe lilypadRecipe() {
 		final ItemStack craft = new ItemStack(Material.WATER_LILY);
 
 		final ShapedRecipe recipe = new ShapedRecipe(craft);
 		recipe.shape("LLL")
 		      .setIngredient('L', Material.LEAVES);
-
-		return recipe;
-	}
-
-	private static Recipe crackedStoneRecipe() {
-		final ItemStack craft = new ItemStack(Material.SMOOTH_BRICK, 2);
-		craft.setDurability((byte)2);
-
-		final ShapedRecipe recipe = new ShapedRecipe(craft);
-		recipe.shape("ss","sc")
-		      .setIngredient('s', Material.SMOOTH_BRICK)
-		      .setIngredient('c', Material.COBBLESTONE);
-
-		return recipe;
-	}
-
-	private static Recipe secretMusicDisk() {
-		final ItemStack craft = new ItemStack(Material.RECORD_11);
-
-		final ShapelessRecipe recipe = new ShapelessRecipe(craft);
-		recipe.addIngredient(Material.RECORD_3)
-		      .addIngredient(Material.RECORD_4)
-		      .addIngredient(Material.RECORD_5)
-		      .addIngredient(Material.RECORD_6)
-		      .addIngredient(Material.RECORD_7)
-		      .addIngredient(Material.RECORD_8)
-		      .addIngredient(Material.RECORD_9)
-		      .addIngredient(Material.RECORD_10)
-		      .addIngredient(Material.RECORD_12);
 
 		return recipe;
 	}
